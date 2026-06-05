@@ -33,7 +33,7 @@ export default function KanbanBoard({ tasks, onOpenTask, onMove, onNew }) {
               onDragLeave={() => setOverCol((c) => (c === col.id ? null : c))}
               onDrop={() => onDrop(col.id)}
               style={{
-                width: 296,
+                width: 'var(--kcol-w)',
                 flex: 'none',
                 display: 'flex',
                 flexDirection: 'column',

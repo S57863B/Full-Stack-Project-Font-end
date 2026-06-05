@@ -201,3 +201,38 @@
   border-radius: var(--r-md);
   margin-bottom: 14px;
 }
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 14px 18px;
+  }
+  .main {
+    padding: 18px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  /* let cards shrink below 240px so they never overflow the viewport */
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  /* stack the header so the New button doesn't crowd the title */
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .newButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .userName {
+    display: none; /* save space; logout button remains */
+  }
+}

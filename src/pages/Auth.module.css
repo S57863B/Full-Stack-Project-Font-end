@@ -124,3 +124,9 @@
 .link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 22px;
+  }
+}

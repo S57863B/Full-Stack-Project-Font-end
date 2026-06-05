@@ -112,3 +112,13 @@
   border-radius: var(--r-md);
   margin-bottom: 14px;
 }
+
+@media (max-width: 480px) {
+  .twoCol {
+    flex-direction: column;
+    gap: 0;
+  }
+  .modal {
+    padding: 22px 18px;
+  }
+}
