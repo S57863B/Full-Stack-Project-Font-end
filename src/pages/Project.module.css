@@ -1,0 +1,120 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-0);
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--gutter);
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--bg-1);
+  flex: none;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--tx-mid);
+  padding: 7px 11px;
+  border-radius: var(--r-sm);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+.back:hover {
+  background: var(--bg-2);
+  color: var(--tx-hi);
+}
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.userName {
+  font-size: 13px;
+  color: var(--tx-mid);
+}
+.logout {
+  font-size: 13px;
+  color: var(--tx-low);
+  padding: 7px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+}
+.logout:hover {
+  background: var(--bg-2);
+  color: var(--tx-hi);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--line-soft);
+  flex: none;
+  flex-wrap: wrap;
+}
+.titleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+}
+.projName {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--tx-hi);
+  line-height: 1;
+}
+.count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--tx-low);
+  background: var(--bg-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 99px;
+  padding: 2px 9px;
+}
+.newButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 15px;
+  border-radius: var(--r-md);
+  transition: filter 0.15s var(--ease);
+}
+.newButton:hover {
+  filter: brightness(1.06);
+}
+
+.state {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  color: var(--tx-low);
+  text-align: center;
+  padding: 40px;
+}
+.stateTitle {
+  font-size: 17px;
+  color: var(--tx-mid);
+  margin-bottom: 6px;
+}
+.errorState {
+  color: oklch(0.75 0.12 25);
+}
