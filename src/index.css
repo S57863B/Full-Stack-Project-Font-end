@@ -1,0 +1,103 @@
+/* Fonts: distinctive display + UI + mono, matching the prototype */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* accent — teal, hue is tunable */
+  --accent-h: 170;
+  --accent: oklch(0.80 0.13 var(--accent-h));
+  --accent-strong: oklch(0.74 0.14 var(--accent-h));
+  --accent-soft: oklch(0.80 0.13 var(--accent-h) / 0.14);
+  --accent-line: oklch(0.80 0.13 var(--accent-h) / 0.32);
+  --on-accent: oklch(0.16 0.02 var(--accent-h));
+
+  /* status hues (the five Kanban columns) */
+  --st-backlog: oklch(0.66 0.012 240);
+  --st-todo:    oklch(0.66 0.012 240);
+  --st-doing:   var(--accent);
+  --st-review:  oklch(0.78 0.085 75);
+  --st-done:    oklch(0.76 0.10 150);
+
+  /* priority hues */
+  --prio-urgent: oklch(0.68 0.13 25);
+  --prio-high:   oklch(0.78 0.10 55);
+  --prio-med:    oklch(0.78 0.085 200);
+  --prio-low:    oklch(0.62 0.012 240);
+
+  /* radii */
+  --r-sm: 6px;
+  --r-md: 9px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* spacing */
+  --gutter: 28px;
+  --card-pad: 14px;
+
+  /* fonts */
+  --font-ui: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Dark theme (default) */
+:root,
+[data-theme="dark"] {
+  --bg-0: oklch(0.165 0.006 245);   /* app backdrop */
+  --bg-1: oklch(0.197 0.006 245);   /* panels / sidebar */
+  --bg-2: oklch(0.225 0.007 245);   /* cards */
+  --bg-2h: oklch(0.255 0.008 245);  /* card hover */
+  --bg-3: oklch(0.285 0.008 245);   /* inputs / chips */
+  --line: oklch(0.32 0.008 245);
+  --line-soft: oklch(0.28 0.007 245);
+  --tx-hi: oklch(0.965 0.004 245);
+  --tx-mid: oklch(0.74 0.008 245);
+  --tx-low: oklch(0.56 0.008 245);
+  --tx-faint: oklch(0.44 0.008 245);
+  --shadow-pop: 0 12px 32px -8px oklch(0 0 0 / 0.55), 0 2px 8px -2px oklch(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-0: oklch(0.975 0.004 245);
+  --bg-1: oklch(0.995 0.002 245);
+  --bg-2: oklch(1 0 0);
+  --bg-2h: oklch(0.965 0.004 245);
+  --bg-3: oklch(0.945 0.005 245);
+  --line: oklch(0.90 0.005 245);
+  --line-soft: oklch(0.93 0.004 245);
+  --tx-hi: oklch(0.24 0.01 245);
+  --tx-mid: oklch(0.44 0.01 245);
+  --tx-low: oklch(0.58 0.01 245);
+  --tx-faint: oklch(0.70 0.008 245);
+  --on-accent: oklch(0.99 0.01 var(--accent-h));
+  --accent: oklch(0.62 0.13 var(--accent-h));
+  --accent-strong: oklch(0.56 0.14 var(--accent-h));
+  --accent-soft: oklch(0.62 0.13 var(--accent-h) / 0.12);
+  --accent-line: oklch(0.62 0.13 var(--accent-h) / 0.30);
+  --shadow-pop: 0 16px 40px -12px oklch(0.4 0.03 245 / 0.22), 0 2px 6px -2px oklch(0.4 0.03 245 / 0.12);
+  color-scheme: light;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-0);
+  color: var(--tx-hi);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font-family: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.serif { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0.01em; }
+.mono { font-family: var(--font-mono); }
