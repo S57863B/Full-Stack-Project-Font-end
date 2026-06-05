@@ -3,11 +3,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import styles from './Auth.module.css';
 
-export default function Register() {
-  const { register } = useAuth();
+export default function Login() {
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,15 +15,9 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
-
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters');
-      return;
-    }
-
     setSubmitting(true);
     try {
-      await register(name, email, password);
+      await login(email, password);
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
@@ -41,26 +34,12 @@ export default function Register() {
           <div className={styles.brandName}>Pro-Tasker</div>
         </div>
 
-        <h1 className={styles.title}>Create your account</h1>
-        <p className={styles.subtitle}>Start organizing your work</p>
+        <h1 className={styles.title}>Welcome back</h1>
+        <p className={styles.subtitle}>Sign in to your workspace</p>
 
         {error && <div className={styles.error}>{error}</div>}
 
         <form onSubmit={handleSubmit}>
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="name">Name</label>
-            <input
-              id="name"
-              className={styles.input}
-              type="text"
-              placeholder="Ada Lovelace"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              autoComplete="name"
-            />
-          </div>
-
           <div className={styles.field}>
             <label className={styles.label} htmlFor="email">Email</label>
             <input
@@ -81,22 +60,22 @@ export default function Register() {
               id="password"
               className={styles.input}
               type="password"
-              placeholder="At least 8 characters"
+              placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              autoComplete="new-password"
+              autoComplete="current-password"
             />
           </div>
 
           <button className={styles.button} type="submit" disabled={submitting}>
-            {submitting ? 'Creating account…' : 'Create account'}
+            {submitting ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
 
         <p className={styles.footer}>
-          Already have an account?{' '}
-          <Link className={styles.link} to="/login">Sign in</Link>
+          Don't have an account?{' '}
+          <Link className={styles.link} to="/register">Create one</Link>
         </p>
       </div>
     </div>
